@@ -1,8 +1,11 @@
 # Group Lab 3
 
 Write a Python script that reads the following CSV file containing information on countries (country_full.csv Download country_full.csv) and splits the countries by region generating one file per region. For example: Europe.CSV should have only European countries.
+
 Keep the country names and region in the output files.
+
 The CSV file format is explained in the textbook section 14.3
+
 Incorporate exception handling (try/except) as there are many errors that may occur when trying to access files, such as IOError, FileNotFoundError, PermissionError
 
 ## Documentation:
