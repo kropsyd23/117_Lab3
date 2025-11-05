@@ -12,13 +12,16 @@ def read_country_file():
     try:   
         countries = open_country_file()
     except EOFError as e:
-        pass
+        print("End of file error", e)
     except IOError as e:
-        pass
+        print("IO error:", e)
     except FileNotFoundError as e:
-        pass
+        print("File not found error:", e)
     except PermissionError as e:
-        pass
+        print("Permission error:", e)
+    except OSError as e:
+        print("OS error:", e)
+
 
     country_list = list(countries)
     return country_list
