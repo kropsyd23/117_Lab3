@@ -1,79 +1,61 @@
 """
 Write separate files for each country
 """
-import reader
-filename = 'country_ful.csv'
 
-if __name__ == "__main__":
-    text = reader.read_countries()
+import reader # for testing when ran as main
+
+def write_country(file, line):
+    ''' add information about a country to its region file '''
+    for key, value in line.items():
+        file.write(key + ': ')
+    
+        # if there is only one element of the list, add that element now
+        if isinstance(value, str):
+            file.write(value + ", ")
+    
+        # if there are multiple elements of the list, loop through them to add every element
+        else:
+            for item in value:
+                file.write(item + ', ')
+    file.write('\n')
+
+def write(text):
+    ''' write information about each country to its region file '''
+    
+    # open a writing file for each region
     africa = open("africa.log", 'w')
     americas = open("americas.log", 'w')
     asia = open("asia.log", 'w')
     europe = open("europe.log", 'w')
     oceania = open("oceania.log", 'w')
 
-
-    # loop through every line in text
+    # loop through every line in the text
     for line in text:
 
         # add to country.log if region is each country
         if line["region"] == "Africa":
-            for key, value in line.items():
-                africa.write(key + ': ')
+            write_country(africa, line)
 
-                # if there is only one element of the list, add that element now
-                if isinstance(value, str):
-                    africa.write(value + ", ")
-                
-                # if there are multiple elements of the list, loop through them to add every element
-                else:
-                    for item in value:
-                        africa.write(item + ', ')
-            africa.write('\n')
-        
         if line["region"] == "Americas":
-            for key, value in line.items():
-                americas.write(key + ': ')
-                if isinstance(value, str):
-                    americas.write(value + ", ")
-                else:
-                    for item in value:
-                        americas.write(item + ', ')
-            americas.write('\n')
+            write_country(americas, line)
         
         if line["region"] == "Asia":
-            for key, value in line.items():
-                asia.write(key + ': ')
-                if isinstance(value, str):
-                    asia.write(value + ", ")
-                else:
-                    for item in value:
-                        asia.write(item + ', ')
-            asia.write('\n')
+            write_country(asia, line)
         
         if line["region"] == "Europe":
-            for key, value in line.items():
-                europe.write(key + ': ')
-                if isinstance(value, str):
-                    europe.write(value + ", ")
-                else:
-                    for item in value:
-                        europe.write(item + ', ')
-            europe.write('\n')
+            write_country(europe, line)
         
         if line["region"] == "Oceania":
-            for key, value in line.items():
-                oceania.write(key + ': ')
-                if isinstance(value, str):
-                    oceania.write(value + ", ")
-                else:
-                    for item in value:
-                        oceania.write(item + ', ')
-            oceania.write('\n')
+            write_country(oceania, line)
     
-    # close files
+    # close each file
     africa.close()
     americas.close()
     asia.close()
     europe.close()
     oceania.close()
+
+if __name__ == "__main__":
+    text = reader.read_countries()
+    write(text)
+    
