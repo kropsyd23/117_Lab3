@@ -1,10 +1,10 @@
-"""
+r"""
 Group Lab 3
 """
-from reader import read
+from mediator import mediate
 
 def main():
-    countries = read()
+    mediate()
     pass
 
 if __name__ == "__main__":
