@@ -8,23 +8,20 @@ from pprint import pp
 filename = 'country_full.csv'
 
 def read_country_file():
-    ''' Read countries '''
+    ''' Read countries from file '''
     try:   
         countries = open_country_file()
+        country_list = list(countries)
+        return country_list
     except EOFError as e:
         print("End of file error", e)
-    except IOError as e:
-        print("IO error:", e)
     except FileNotFoundError as e:
         print("File not found error:", e)
     except PermissionError as e:
         print("Permission error:", e)
     except OSError as e:
         print("OS error:", e)
-
-
-    country_list = list(countries)
-    return country_list
+    return []
 
 def open_country_file():
     ''' Open the country full csv file '''
