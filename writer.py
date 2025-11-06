@@ -6,28 +6,34 @@ import reader # for testing when ran as main
 
 def write_country(file, line):
     ''' add information about a country to its region file '''
-    for key, value in line.items():
-        file.write(key + ': ')
-    
+    # add the country name then remove from dictionary to set up commas
+    file.write(line["name"])
+    del line["name"]
+
+    # loop through remaining information
+    for key, value in line.items():    
         # if there is only one element of the list, add that element now
         if isinstance(value, str):
-            file.write(value + ", ")
+            if value != "":
+                file.write("," + value)
+            else:
+                file.write("," + '""')
     
         # if there are multiple elements of the list, loop through them to add every element
         else:
             for item in value:
-                file.write(item + ', ')
+                file.write("," + item)
     file.write('\n')
 
 def write(text):
     ''' write information about each country to its region file '''
     
     # open a writing file for each region
-    africa = open("africa.log", 'w')
-    americas = open("americas.log", 'w')
-    asia = open("asia.log", 'w')
-    europe = open("europe.log", 'w')
-    oceania = open("oceania.log", 'w')
+    africa = open("africa.csv", 'w')
+    americas = open("americas.csv", 'w')
+    asia = open("asia.csv", 'w')
+    europe = open("europe.csv", 'w')
+    oceania = open("oceania.csv", 'w')
 
     # loop through every line in the text
     for line in text:
@@ -56,6 +62,6 @@ def write(text):
     oceania.close()
 
 if __name__ == "__main__":
-    text = reader.read_countries()
+    text = reader.read_country_file()
     write(text)
     
