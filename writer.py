@@ -1,11 +1,11 @@
 """
-Write separate files for each region
+Write separate files given parameters
 """
 
 import reader # for testing when ran as main
 
-def write_country(file, line):
-    ''' add information about a country to its region file '''
+def write_line(file, line):
+    ''' add information to a file '''
     # add the country name then remove from dictionary to set up commas
     file.write(line["name"])
     del line["name"]
@@ -25,43 +25,22 @@ def write_country(file, line):
                 file.write("," + item)
     file.write('\n')
 
-def write(text):
-    ''' write information about each country to its region file '''
+def write(text, key, index, file_name):
+    ''' write information about a specified key if it matches a specific index '''
     
-    # open a writing file for each region
-    africa = open("africa.csv", 'w')
-    americas = open("americas.csv", 'w')
-    asia = open("asia.csv", 'w')
-    europe = open("europe.csv", 'w')
-    oceania = open("oceania.csv", 'w')
-
+    # open a writing file
+    file_variable = open(file_name, 'w')
     # loop through every line in the text
     for line in text:
 
-        # add to country.log if region is each country
-        if line["region"] == "Africa":
-            write_country(africa, line)
+        # add to that file if index matches specified index
+        if line[key] == index:
+            write_line(file_variable, line)
 
-        if line["region"] == "Americas":
-            write_country(americas, line)
-        
-        if line["region"] == "Asia":
-            write_country(asia, line)
-        
-        if line["region"] == "Europe":
-            write_country(europe, line)
-        
-        if line["region"] == "Oceania":
-            write_country(oceania, line)
-    
-    # close each file
-    africa.close()
-    americas.close()
-    asia.close()
-    europe.close()
-    oceania.close()
+    # close file
+    file_variable.close()
 
 if __name__ == "__main__":
     text = reader.read_country_file()
-    write(text)
+    write(text, "region", "Africa", "africa.csv")
     

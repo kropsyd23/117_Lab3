@@ -1,5 +1,5 @@
 from reader import read_country_file
-from writer import write
+from writer_wrong import write
 
 def mediate():
     """Read countries and write them out by region.
