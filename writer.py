@@ -56,6 +56,6 @@ def write(text):
     oceania.close()
 
 if __name__ == "__main__":
-    text = reader.read_countries()
+    text = reader.read_country_file()
     write(text)
     
