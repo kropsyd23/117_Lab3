@@ -1,5 +1,5 @@
 """
-Write separate files for each country
+Write separate files for each region
 """
 
 import reader # for testing when ran as main
