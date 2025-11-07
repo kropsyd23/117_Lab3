@@ -1,5 +1,8 @@
 r"""
 Group Lab 3
+Elayne Vilela
+Sydney Kropf
+James Hay
 """
 from mediator import mediate
 
