@@ -10,10 +10,10 @@ Incorporate exception handling (try/except) as there are many errors that may oc
 
 ## Documentation:
 Write a header comment at the beginning of the module with the following information:
-* CIS-117 Lab4
-* Write a description of your module here
-* Your first and last name here
+* CIS-117 Lab3
+* We wrote a Python script that reads the a CSV file containing information on countries and we split the countries by region generating one file per region.
+* Group 2 - Elayne Vilela; Jame Hay; Sydney Kropf.
 
 If you worked with a partner, Group# and the names of the person who collaborated with you
 
-Write here a brief description about how the collaboration worked (who worked on which part)
+James worked on the reader file, cleaning all the errors and preparing the data; Elayne worked on the mediator file, creating the bridge and splitting the files; and Sydney worked on the writer file, loading and processing the data so it could be separated correctly.
